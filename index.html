@@ -37,19 +37,25 @@
   <body>
     <h1>liiiiife</h1>
     <br/>
-    <p>这是你的 xxxx 年</p>
 
-    <progress value="266" max="365"></progress>
+    <script>
+      var now = new Date();
+      var start = new Date(now.getFullYear(), 0, 1);
+      var end = new Date(now.getFullYear()+1, 0, 1);
+      var oneDay = 1000 * 60 * 60 * 24;
 
-    <p>它已经过去了 xx.xx %</p>
+      document.write('<p>这是你的 ' + now.getFullYear() + ' 年</p>');
+      document.write('<progress value="'+Math.floor((now-start)/oneDay)+'" max="'+Math.floor((end-start)/oneDay)+'"></progress>');
+      document.write('<p>它已经过去了 '+ Math.round(Math.floor((now-start)/oneDay)/Math.floor((end-start)/oneDay)*10000,2)/100 +' %</p>');
+    </script>
 
     <p><br/><br/></p>
 
     <p>？？？你的人生呢 ？？？</p>
-    
+
     <p><br/><br/></p>
-    
-    <img src="liiiiife.jpg" height="150" width="150"></img>
+
+    <img src="liiiiife.jpg" height="150" width="150" />
 
     <p><br/><br/>︾ ︾ ︾<br/><br/></p>
 
@@ -74,6 +80,6 @@
     <p>选择生日查看剩余人生：<input type="date" name="bday"></p>
 
     <p><br/><br/></p>
-    
+
   </body>
 </html>
