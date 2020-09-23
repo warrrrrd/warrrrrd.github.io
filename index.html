@@ -8,7 +8,7 @@
         text-align:center;
       }
       progress{
-        width: 303px;
+        width: 300px;
         height: 30px;
       }
       progress{
@@ -69,15 +69,15 @@
       var bdate = new Date(1983,11,20);
       var n = (now.getFullYear()*12+now.getMonth()+1)-(bdate.getFullYear()*12+bdate.getMonth()+1);
 
-      document.write('<table border="1" cellspacing="1" cellpadding="1" align="center">');
+      document.write('<table border="0" cellspacing="1" cellpadding="1" align="center">');
       for (var i=0;i<30;i++){ 
         document.write('<tr>');
         for (var j=0;j<30;j++){ 
           if (900-n>0){
-            document.write('<td width="5" height="5"></td>');
+            document.write('<td width="7" height="7" style="background:#EEEEEE"></td>');
             n++;
           }else{
-            document.write('<td width="5" height="5" style="background:lightgray"></td>');
+            document.write('<td width="7" height="7" style="background:#BBBBBB"></td>');
           }
         }
         document.write('</tr>');
