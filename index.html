@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>liiiiife - coming soon ...</title>
-</head>
-<body style="text-align:center">
-	<h1>liiiiife</h1>
-	<br/>
-	<p>这是你的 xxxx 年</p>
-	
-	<progress value="266" max="365" style="height:50px;width:300px;"></progress>
-	
-	<p>它已经过去了 xx.xx %</p>
-	
-	<p><br/><br/><br/></p>
-	
-	<p>？？？你的人生呢？？？</p>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>liiiiife - coming soon ...</title>
+    <style type="text/css">
+      body{
+        text-align:center;
+      }
+      progress{
+        width: 300px;
+        height: 30px;
+      }
+      progress{
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+      }
+      /* IE10 */
+      progress {
+        color: orange;
+        background:#EEEEEE;
+      }
+      /* Firefox */
+      progress::-moz-progress-bar { 
+        background: orange;  
+      }
+      /* Chrome */
+      progress::-webkit-progress-bar{
+        background-color:#EEEEEE;
+      }
+      progress::-webkit-progress-value {
+        background: orange;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <h1>liiiiife</h1>
+    <br/>
+    <p>这是你的 xxxx 年</p>
+
+    <progress value="266" max="365"></progress>
+
+    <p>它已经过去了 xx.xx %</p>
+
+    <p><br/><br/><br/></p>
+
+    <p>？？？你的人生呢 ？？？</p>
+  </body>
 </html>
