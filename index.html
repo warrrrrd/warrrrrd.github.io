@@ -65,12 +65,20 @@
     <p>就在这一个30×30的表格上......</p>
 
     <script>
+      var now = new Date();
+      var bdate = new Date(1983,11,20);
+      var n = (now.getFullYear()*12+now.getMonth()+1)-(bdate.getFullYear()*12+bdate.getMonth()+1);
+
       document.write('<table border="1" cellspacing="1" cellpadding="1" align="center">');
       for (var i=0;i<30;i++){ 
         document.write('<tr>');
         for (var j=0;j<30;j++){ 
-          document.write('<td width="5" height="5">');
-          document.write('</td>');
+          if (900-n>0){
+            document.write('<td width="5" height="5"></td>');
+            n++;
+          }else{
+            document.write('<td width="5" height="5" style="background:lightgray"></td>');
+          }
         }
         document.write('</tr>');
       }
