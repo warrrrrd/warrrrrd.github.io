@@ -66,10 +66,10 @@
 
     <script>
       var now = new Date();
-      var bdate = new Date(1983,11,20);
+      var bdate = new Date("1983-11-20");
       var n = (now.getFullYear()*12+now.getMonth()+1)-(bdate.getFullYear()*12+bdate.getMonth()+1);
 
-      document.write('<table border="0" cellspacing="1" cellpadding="1" align="center">');
+      document.write('<table id="ltable" border="0" cellspacing="1" cellpadding="1" align="center">');
       for (var i=0;i<30;i++){ 
         document.write('<tr>');
         for (var j=0;j<30;j++){ 
@@ -85,7 +85,35 @@
       document.write('</table>');
     </script>
 
-    <p>选择生日查看剩余人生：<input type="date" name="bday" value="1983-11-20"></p>
+    <script>
+      function bdatechange(e){
+        /* alert(e.target.value); */
+
+        var now = new Date();
+        var bdate = new Date(e.target.value);
+        var n = (now.getFullYear()*12+now.getMonth()+1)-(bdate.getFullYear()*12+bdate.getMonth()+1);
+
+        var hstr = '';
+        /* hstr += '<table id="ltable" border="0" cellspacing="1" cellpadding="1" align="center">'; */
+        for (var i=0;i<30;i++){ 
+          hstr += '<tr>';
+          for (var j=0;j<30;j++){ 
+            if (900-n>0){
+              hstr += '<td width="7" height="7" style="background:#EEEEEE"></td>';
+              n++;
+            }else{
+              hstr += '<td width="7" height="7" style="background:#BBBBBB"></td>';
+            }
+          }
+          hstr += '</tr>';
+        }
+        /* hstr += '</table>'; */
+
+        document.getElementById("ltable").innerHTML = hstr;
+      }
+    </script>
+
+    <p>选择生日查看剩余人生：<input type="date" id="bday" value="1983-11-20" onchange="bdatechange(event);"/></p>
 
     <p><br/><br/></p>
 
