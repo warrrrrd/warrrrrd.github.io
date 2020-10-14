@@ -6,7 +6,6 @@
   </head>
   <style>     
     body,html{
-      background:white;
       height:99%;
       width:99%;
     }
@@ -161,8 +160,10 @@
     hstr += '</table>';
 
     hstr += '</td></tr>';
+    
+    hstr += '<tr><td align="center">你的人生是否也如此多彩 ？</td></tr>';
 
-    hstr += '<tr><td align="center">选择生日查看剩余人生：<input type="date" id="bday" value="1957-10-17" onchange="reloadlifepassed(event);"/></td></tr>';
+    hstr += '<tr><td align="center" style="padding-top:20px">选择生日查看剩余人生：<input type="date" id="bday" value="1957-10-17" onchange="reloadlifepassed(event);"/></td></tr>';
 
     hstr += '<tr><td align="center" style="padding-top:30px" onclick="loadyearpassed();">︾ ︾ ︾</td></tr>';
 
