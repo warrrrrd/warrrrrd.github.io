@@ -86,10 +86,38 @@
 
 
     hstr += '<tr><td align="center">？？？你的人生呢 ？？？</td></tr>';
+
     hstr += '<tr><td align="center" style="padding-top:30px" onclick="loadlifepassed();">︾ ︾ ︾</td></tr>';
 
     document.getElementById("mytable").innerHTML = hstr;
+  }
 
+  function getrandomcolor(){
+    var life_color = '#EA4335';
+
+    var c = Math.floor(Math.random()*(4-1+1)+1);
+    switch(c){ 
+      case 1: 
+        // 绿色
+        life_color = '#34A853';
+        break; 
+      case 2: 
+        // 蓝色
+        life_color = '#4285F4';
+        break; 
+      case 3: 
+        // 橙色
+        life_color = '#FBBC05';
+        break; 
+      case 4: 
+        // 红色
+        life_color = '#EA4335';
+        break; 
+      default: 
+        life_color = '#EA4335';
+        break; 
+    } 
+    return life_color;
   }
 
   function getlifetable(bdate){
@@ -103,22 +131,22 @@
       hstr += '<tr>';
       for (var j=0;j<30;j++){ 
         if (900-n>0){
-          hstr += '<td width="7" height="7" style="background:#EEEEEE"></td>';
+          hstr += '<td width="7" height="7" style="background:#eeeeee"></td>';
           n++;
         }else{
-          hstr += '<td width="7" height="7" style="background:#BBBBBB"></td>';
+
+          hstr += '<td width="7" height="7" style="background:'+getrandomcolor()+'"></td>';
         }
       }
       hstr += '</tr>';
     }
 
     return hstr;
-
   }
 
   function loadlifepassed(e){
-
     var hstr = '';
+
     hstr += '<tr><td align="center">人生不过短短的900个月</td></tr>';
     hstr += '<tr><td align="center">如果每过一个月就涂掉一个格子</td></tr>';
     hstr += '<tr><td align="center">全部的人生</td></tr>';
@@ -134,20 +162,16 @@
 
     hstr += '</td></tr>';
 
-
     hstr += '<tr><td align="center">选择生日查看剩余人生：<input type="date" id="bday" value="1957-10-17" onchange="reloadlifepassed(event);"/></td></tr>';
+
     hstr += '<tr><td align="center" style="padding-top:30px" onclick="loadyearpassed();">︾ ︾ ︾</td></tr>';
 
     document.getElementById("mytable").innerHTML = hstr;
-
   }
 
   function reloadlifepassed(e){
-
     var hstr = getlifetable(new Date(e.target.value));
-
     document.getElementById("lifetable").innerHTML = hstr;
-
   }
 
 </script>
