@@ -3,122 +3,151 @@
   <head>
     <meta charset="utf-8">
     <title>liiiiife.cn</title>
-    <style type="text/css">
-      body{
-        text-align:center;
-      }
-      progress{
-        width: 300px;
-        height: 30px;
-      }
-      progress{
-        appearance: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-      }
-      /* IE10 */
-      progress {
-        color: orange;
-        background:#eeeeee;
-      }
-      /* Firefox */
-      progress::-moz-progress-bar { 
-        background: orange;  
-      }
-      /* Chrome */
-      progress::-webkit-progress-bar{
-        background-color:#eeeeee;
-      }
-      progress::-webkit-progress-value {
-        background: orange;
-      }
-    </style>
   </head>
-  <body>
-    <p><br/></p>
-    <h2>liiiiife.cn</h2>
-    <br/>
-
-    <script>
-      var now = new Date();
-      var start = new Date(now.getFullYear(), 0, 1);
-      var end = new Date(now.getFullYear()+1, 0, 1);
-      var oneDay = 1000 * 60 * 60 * 24;
-
-      document.write('<p>这是你的' + now.getFullYear() + '年</p>');
-      document.write('<progress value="'+Math.floor((now-start)/oneDay)+'" max="'+Math.floor((end-start)/oneDay)+'"></progress>');
-      document.write('<p>它已经过去了'+ Math.round(Math.floor((now-start)/oneDay)/Math.floor((end-start)/oneDay)*10000,2)/100 +'%</p>');
-    </script>
-
-    <p><br/><br/></p>
-
-    <p>？？？你的人生呢 ？？？</p>
-
-    <p><br/><br/></p>
-
-    <img src="liiiiife.jpg" height="120" width="120" /> 
-    <img src="liiiiifemp.jpg" height="120" width="120" />
-
-    <p><br/><br/><br/><br/>︾ ︾ ︾<br/><br/><br/><br/><br/></p>
-
-    <p>人生不过短短的900个月</p>
-    <p>如果每过一个月就涂掉一个格子</p>
-    <p>全部的人生</p>
-    <p>就在这一个30×30的表格上......</p>
-
-    <script>
-      var now = new Date();
-      var bdate = new Date("1957-10-17");
-      var n = (now.getFullYear()*12+now.getMonth()+1)-(bdate.getFullYear()*12+bdate.getMonth()+1);
-
-      document.write('<table id="ltable" border="0" cellspacing="1" cellpadding="1" align="center">');
-      for (var i=0;i<30;i++){ 
-        document.write('<tr>');
-        for (var j=0;j<30;j++){ 
-          if (900-n>0){
-            document.write('<td width="7" height="7" style="background:#EEEEEE"></td>');
-            n++;
-          }else{
-            document.write('<td width="7" height="7" style="background:#BBBBBB"></td>');
-          }
-        }
-        document.write('</tr>');
-      }
-      document.write('</table>');
-    </script>
-
-    <script>
-      function bdatechange(e){
-        /* alert(e.target.value); */
-
-        var now = new Date();
-        var bdate = new Date(e.target.value);
-        var n = (now.getFullYear()*12+now.getMonth()+1)-(bdate.getFullYear()*12+bdate.getMonth()+1);
-
-        var hstr = '';
-        /* hstr += '<table id="ltable" border="0" cellspacing="1" cellpadding="1" align="center">'; */
-        for (var i=0;i<30;i++){ 
-          hstr += '<tr>';
-          for (var j=0;j<30;j++){ 
-            if (900-n>0){
-              hstr += '<td width="7" height="7" style="background:#EEEEEE"></td>';
-              n++;
-            }else{
-              hstr += '<td width="7" height="7" style="background:#BBBBBB"></td>';
-            }
-          }
-          hstr += '</tr>';
-        }
-        /* hstr += '</table>'; */
-
-        document.getElementById("ltable").innerHTML = hstr;
-      }
-    </script>
-
-    <p>选择生日查看剩余人生：<input type="date" id="bday" value="1957-10-17" onchange="bdatechange(event);"/></p>
-
-    <p><br/><br/></p>
-
-    <p>© 2020 liiiiife.cn</p>
+  <style>     
+    body,html{
+      background:white;
+      height:99%;
+      width:99%;
+    }
+    *{
+      margin:0;
+      padding:0;
+    }
+  </style>
+  <body onload="loadyearpassed()">
+    <div style="width:100%;height:100%;">
+      <table style="width:100%;height:100%;">
+        <tr>
+          <td align="center">liiiiife.cn</td>
+        </tr>
+        <tr>
+          <td align="center">
+            <table id="mytable" style="width:100%;" cellspacing="20">
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">© 2020 liiiiife.cn</td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>
+
+<script>
+  function loadyearpassed(e){
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 1);
+    var end = new Date(now.getFullYear()+1, 0, 1);
+    var oneDay = 1000 * 60 * 60 * 24;
+
+    var dayp = Math.floor(Math.floor((now-start)/oneDay)/Math.floor((end-start)/oneDay)*300);
+
+    var progress_color = '#EA4335';
+    if (dayp < 75) {
+      // 绿色
+      progress_color = '#34A853';
+    } else if (dayp < 150) {
+      // 蓝色
+      progress_color = '#4285F4';
+    } else if (dayp < 225) {
+      // 橙色
+      progress_color = '#FBBC05';
+    } else {
+      // 红色
+      progress_color = '#EA4335';
+    }
+
+    var hstr = '';
+    hstr += '<tr><td align="center">这是你的' + now.getFullYear() + '年</td></tr>';
+
+    hstr += '<tr><td align="center">';
+
+    hstr += '<table border="0" border="0" cellspacing="0" cellpadding="0"><tr>';
+
+    for (var d=0;d<300;d++){
+      if(d<dayp){
+        hstr += '<td width="1" height="30" style="border:0px;background:'+progress_color+';"></td>';
+      }else{
+        hstr += '<td width="1" height="30" style="border:0px;background:#eeeeee;"></td>';
+      }
+    }
+
+    hstr += '</tr></table>';
+
+    hstr += '</td></tr>';
+
+    hstr += '<tr><td align="center">它已经过去了'+ Math.round(Math.floor((now-start)/oneDay)/Math.floor((end-start)/oneDay)*10000,2)/100 +'%</td></tr>';
+
+
+    hstr += '<tr><td align="center" style="padding:50px"><img src="liiiiife.jpg" height="120" width="120" /> ';
+    hstr += '<img src="liiiiifemp.jpg" height="120" width="120" /></td></tr>';
+
+
+    hstr += '<tr><td align="center">？？？你的人生呢 ？？？</td></tr>';
+    hstr += '<tr><td align="center" style="padding-top:30px" onclick="loadlifepassed();">︾ ︾ ︾</td></tr>';
+
+    document.getElementById("mytable").innerHTML = hstr;
+
+  }
+
+  function getlifetable(bdate){
+    var now = new Date();
+    //var bdate = new Date(e.target.value);
+    var n = (now.getFullYear()*12+now.getMonth()+1)-(bdate.getFullYear()*12+bdate.getMonth()+1);
+
+    var hstr = '';
+
+    for (var i=0;i<30;i++){ 
+      hstr += '<tr>';
+      for (var j=0;j<30;j++){ 
+        if (900-n>0){
+          hstr += '<td width="7" height="7" style="background:#EEEEEE"></td>';
+          n++;
+        }else{
+          hstr += '<td width="7" height="7" style="background:#BBBBBB"></td>';
+        }
+      }
+      hstr += '</tr>';
+    }
+
+    return hstr;
+
+  }
+
+  function loadlifepassed(e){
+
+    var hstr = '';
+    hstr += '<tr><td align="center">人生不过短短的900个月</td></tr>';
+    hstr += '<tr><td align="center">如果每过一个月就涂掉一个格子</td></tr>';
+    hstr += '<tr><td align="center">全部的人生</td></tr>';
+    hstr += '<tr><td align="center">就在这一个30×30的表格上......</td></tr>';
+
+    hstr += '<tr><td align="center">';
+
+    hstr += '<table id="lifetable" border="0" cellspacing="1" cellpadding="1">';
+
+    hstr += getlifetable(new Date("1957-10-17"));
+
+    hstr += '</table>';
+
+    hstr += '</td></tr>';
+
+
+    hstr += '<tr><td align="center">选择生日查看剩余人生：<input type="date" id="bday" value="1957-10-17" onchange="reloadlifepassed(event);"/></td></tr>';
+    hstr += '<tr><td align="center" style="padding-top:30px" onclick="loadyearpassed();">︾ ︾ ︾</td></tr>';
+
+    document.getElementById("mytable").innerHTML = hstr;
+
+  }
+
+  function reloadlifepassed(e){
+
+    var hstr = getlifetable(new Date(e.target.value));
+
+    document.getElementById("lifetable").innerHTML = hstr;
+
+  }
+
+</script>
