@@ -6,6 +6,7 @@
   </head>
   <style>     
     body,html{
+      background:#F8F8F8;
       height:99%;
       width:99%;
     }
@@ -86,7 +87,7 @@
 
     hstr += '<tr><td align="center">？？？你的人生呢 ？？？</td></tr>';
 
-    hstr += '<tr><td align="center" style="padding-top:30px" onclick="loadlifepassed();">︾ ︾ ︾</td></tr>';
+    hstr += '<tr><td align="center" style="padding-top:30px;cursor:pointer;color:#4285F4;" onclick="loadlifepassed();">︾ ︾ ︾</td></tr>';
 
     document.getElementById("mytable").innerHTML = hstr;
   }
@@ -165,7 +166,7 @@
 
     hstr += '<tr><td align="center" style="padding-top:20px">选择生日查看剩余人生：<input type="date" id="bday" value="1957-10-17" onchange="reloadlifepassed(event);"/></td></tr>';
 
-    hstr += '<tr><td align="center" style="padding-top:30px" onclick="loadyearpassed();">︾ ︾ ︾</td></tr>';
+    hstr += '<tr><td align="center" style="padding-top:30px;cursor:pointer;color:#4285F4;" onclick="loadyearpassed();">︾ ︾ ︾</td></tr>';
 
     document.getElementById("mytable").innerHTML = hstr;
   }
