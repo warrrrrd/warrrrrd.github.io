@@ -43,7 +43,7 @@
     var end = new Date(now.getFullYear()+1, 0, 1);
     var oneDay = 1000 * 60 * 60 * 24;
 
-    var dayp = Math.floor(Math.floor((now-start)/oneDay)/Math.floor((end-start)/oneDay)*300);
+    var dayp = Math.floor(((now-start)/oneDay)/((end-start)/oneDay)*300);
 
     var progress_color = '#EA4335';
     if (dayp < 75) {
@@ -79,7 +79,7 @@
 
     hstr += '</td></tr>';
 
-    hstr += '<tr><td align="center">它已经过去了'+ Math.round(Math.floor((now-start)/oneDay)/Math.floor((end-start)/oneDay)*10000,2)/100 +'%</td></tr>';
+    hstr += '<tr><td align="center">它已经过去了'+ Math.floor(((now-start)/oneDay)/((end-start)/oneDay)*100) +'%</td></tr>';
 
     hstr += '<tr><td align="center" style="padding:50px">';
     hstr += '<table border="0" border="0" cellspacing="0" cellpadding="0"><tr>';
