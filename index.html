@@ -148,6 +148,16 @@
   }
 
   function loadlifepassed(e){
+    var bdate = "1957-10-17";
+    var cname = "birthday=";
+    var ca = document.cookie.split(";");
+    for(var i=0; i<ca.length; i++){
+      var c = ca[i].trim();
+      if (c.indexOf(cname)==0){
+        bdate = c.substring(cname.length,c.length);
+      }
+    }
+
     var hstr = '';
 
     hstr += '<tr><td align="center">人生不过短短的900个月</td></tr>';
@@ -159,15 +169,15 @@
 
     hstr += '<table id="lifetable" border="0" cellspacing="1" cellpadding="1">';
 
-    hstr += getlifetable(new Date("1957-10-17"));
+    hstr += getlifetable(new Date(bdate));
 
     hstr += '</table>';
 
     hstr += '</td></tr>';
-    
+
     hstr += '<tr><td align="center">你的人生是否也如此多彩 ？</td></tr>';
 
-    hstr += '<tr><td align="center" style="padding-top:20px">选择生日查看剩余人生：<input type="date" id="bday" value="1957-10-17" onchange="reloadlifepassed(event);"/></td></tr>';
+    hstr += '<tr><td align="center" style="padding-top:20px">选择生日查看剩余人生：<input type="date" id="bday" value="'+bdate+'" onchange="reloadlifepassed(event);"/></td></tr>';
 
     hstr += '<tr><td align="center" style="padding-top:30px;cursor:pointer;color:#4285F4;font-weight:bold;" onclick="loadyearpassed();">︾ ︾ ︾</td></tr>';
 
@@ -177,6 +187,10 @@
   function reloadlifepassed(e){
     var hstr = getlifetable(new Date(e.target.value));
     document.getElementById("lifetable").innerHTML = hstr;
+
+    var bdate = e.target.value;
+    var cname = "birthday=";
+    document.cookie = cname + bdate;
   }
 
 </script>
